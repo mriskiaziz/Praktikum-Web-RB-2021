@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<span>Pilih Tema : </span>
+	<select id="tema" onclick ="pilih_tema()">
+		<option value="putih">Putih</option>
+		<option value="hitam">Hitam</option>
+	</select>
+
+	<h1>Ini Website Saya</h1>
+	
+	<span>Pilih Kondisi Cuaca Hari ini : </span>
+	<select id="cuaca" onclick ="text_cuaca()">
+		<option value="panas">Panas</option>
+		<option value="hujan">Hujan</option>
+		<option value="kemarau">Kemarau</option>
+		<option value="salju">Salju</option>
+	</select>
+	<p id="teks"></p>
+
+	<p>Masukkan Angka: 
+		<input type="number" id="angka">
+		<input type="submit" onclick="faktorial()">
+	</p>
+	<p id="teks2"></p>
+
+	<script type="text/javascript">
+		function pilih_tema() {
+			var	Tema = document.getElementById('tema').value;
+			if (Tema == "hitam"){
+				document.body.style.background = "black";
+				document.body.style.color = "white";
+			}else{
+				document.body.style.background = "white";
+				document.body.style.color = "black";
+			}
+		}
+
+		function text_cuaca(){
+			var Cuaca = document.getElementById("cuaca").value;
+			
+			var tulisan = "";
+			if(Cuaca == "panas"){
+				tulisan = "Hari ini sangat panas, beli eskrim enak nih";
+		 	}else if (Cuaca == "hujan") {
+		 		tulisan = "Hari ini hujan sangat deras, sediakan payung";
+		 	}else if (Cuaca == "kemarau") {
+		 		tulisan = "Hari ini kemarau, bagaimana persedian airmu ?";
+		 	}else{
+		 		tulisan = "Hari ini salju turun, cepat pakai mantel dan jaketmu";
+		 	}
+
+		 	document.getElementById("teks").innerHTML = tulisan;
+		}
+
+		function faktorial() {
+			var angka = document.getElementById("angka").value;
+			var hasil = 1;
+
+			var i=angka;
+			while(i!=0){
+				hasil = hasil * i;
+				i--;
+			}
+			
+			var tulisan = "Faktorial dari " + angka + " adalah " + hasil;
+			document.getElementById("teks2").innerHTML = tulisan;
+		}
+	</script> 
+</body>
+</html>
